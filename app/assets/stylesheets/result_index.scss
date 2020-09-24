@@ -6,12 +6,22 @@
   margin: 20px;
 }
 
-.league-table {
-
+.league-table td {
+  text-align: center;
 }
 
-table {
-  
+// 対角線
+tr.result-cells:nth-child(2) > td:nth-child(3),
+tr.result-cells:nth-child(3) > td:nth-child(4),
+tr.result-cells:nth-child(4) > td:nth-child(5),
+tr.result-cells:nth-child(5) > td:nth-child(6),
+tr.result-cells:nth-child(6) > td:nth-child(7),
+tr.result-cells:nth-child(7) > td:nth-child(8),
+tr.result-cells:nth-child(8) > td:nth-child(9),
+tr.result-cells:nth-child(9) > td:nth-child(10),
+tr.result-cells:nth-child(10) > td:nth-child(11),
+tr.result-cells:nth-child(11) > td:nth-child(12){
+  background-image: linear-gradient(to top right, transparent, transparent 48%, black 49%, black 51%, transparent 52%, transparent);
 }
 
 .top-tr {
@@ -20,41 +30,31 @@ table {
 
 .rank-title {
   width: 50px;
-  text-align: center;
   background-color: #FFFFAA;
 }
 
 .member-title {
   width: 80px;
-  text-align: center;
-  background-color: #EEEEEE;
-}
-
-.self-name {
-  height:40px ;
   background-color: #EEEEEE;
 }
 
 .opponent-name {
-  width: 60px;
+  width: 80px;
   background-color: #EEEEEE;
 }
 
 .win-count-title {
   width: 50px;
-  text-align: center;
   background-color: #FFD5EC;
 }
 
 .lose-count-title {
   width: 50px;
-  text-align: center;
   background-color: #D9E5FF;
 }
 
 .sb-count-title {
   width: 50px;
-  text-align: center;
   background-color: #F3FFD8;
 }
 
@@ -68,6 +68,14 @@ table {
 
 .result-cells {
   height:40px ;
+}
+
+.result-cells td {
+}
+
+.self-name {
+  height:40px ;
+  background-color: #EEEEEE;
 }
 
 .member-list {
@@ -100,4 +108,8 @@ table {
 
 .member-introduction {
   height: 30px;
+}
+
+.member-introduction td {
+  padding-left: 5px;
 }
