@@ -10,17 +10,17 @@
   text-align: center;
 }
 
-// 対角線
-tr.result-cells:nth-child(2) > td:nth-child(3),
-tr.result-cells:nth-child(3) > td:nth-child(4),
-tr.result-cells:nth-child(4) > td:nth-child(5),
-tr.result-cells:nth-child(5) > td:nth-child(6),
-tr.result-cells:nth-child(6) > td:nth-child(7),
-tr.result-cells:nth-child(7) > td:nth-child(8),
-tr.result-cells:nth-child(8) > td:nth-child(9),
-tr.result-cells:nth-child(9) > td:nth-child(10),
-tr.result-cells:nth-child(10) > td:nth-child(11),
-tr.result-cells:nth-child(11) > td:nth-child(12){
+// 対角線を引く対象となるtdを選定
+#cell1-1,
+#cell2-2,
+#cell3-3,
+#cell4-4,
+#cell5-5,
+#cell6-6,
+#cell7-7,
+#cell8-8,
+#cell9-9,
+#cell10-10 {
   background-image: linear-gradient(to top right, transparent, transparent 48%, black 49%, black 51%, transparent 52%, transparent);
 }
 
