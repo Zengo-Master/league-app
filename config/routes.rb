@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root 'result#index'
+  root to: 'results#index'
+  get 'results/:id', to: 'results#cell'
 end
