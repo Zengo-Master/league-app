@@ -11,16 +11,16 @@
 }
 
 // 対角線を引く対象となるtdを選定
-#cell1-1,
-#cell2-2,
-#cell3-3,
-#cell4-4,
-#cell5-5,
-#cell6-6,
-#cell7-7,
-#cell8-8,
-#cell9-9,
-#cell10-10 {
+#cell_1_1,
+#cell_2_2,
+#cell_3_3,
+#cell_4_4,
+#cell_5_5,
+#cell_6_6,
+#cell_7_7,
+#cell_8_8,
+#cell_9_9,
+#cell_10_10 {
   background-image: linear-gradient(to top right, transparent, transparent 48%, black 49%, black 51%, transparent 52%, transparent);
 }
 
