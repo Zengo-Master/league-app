@@ -6,25 +6,33 @@
   margin: 20px;
 }
 
+.league-table {
+  margin-top: 20px;
+}
+
+.league-table-title {
+  margin-bottom: 5px;
+}
+
 .league-table td {
   text-align: center;
 }
 
 // 対角線を引く対象となるtdを選定
-#cell_1_1,
-#cell_2_2,
-#cell_3_3,
-#cell_4_4,
-#cell_5_5,
-#cell_6_6,
-#cell_7_7,
-#cell_8_8,
-#cell_9_9,
-#cell_10_10 {
-  background-image: linear-gradient(to top right, transparent, transparent 48%, black 49%, black 51%, transparent 52%, transparent);
+.op_1,
+.op_2,
+.op_3,
+.op_4,
+.op_5,
+.op_6,
+.op_7,
+.op_8,
+.op_9,
+.op_10 {
+  // background-image: linear-gradient(to top right, transparent, transparent 48%, black 49%, black 51%, transparent 52%, transparent);
 }
 
-.top-tr {
+.top-title {
   height: 30px;
 }
 
@@ -33,7 +41,7 @@
   background-color: #FFFFAA;
 }
 
-.member-title {
+.player-title {
   width: 80px;
   background-color: #EEEEEE;
 }
@@ -83,33 +91,29 @@
 }
 
 .member-list-title {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .member-info {
   height: 30px;
 }
 
-.member {
+.member-title {
   width: 100px;
   text-align: center;
   background-color: #EEEEEE;
 }
 
-.account {
+.account-title {
   width: 150px;
   text-align: center;
 }
 
-.achievement {
+.achievement-title {
   width: 500px;
   text-align: center;
 }
 
-.member-introduction {
-  height: 30px;
-}
-
 .member-introduction td {
-  padding-left: 5px;
+  height: 30px;
 }

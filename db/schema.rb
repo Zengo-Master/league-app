@@ -10,20 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_143335) do
+ActiveRecord::Schema.define(version: 2020_09_27_073547) do
 
-  create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
-    t.string "cell_1", default: ""
-    t.string "cell_2", default: ""
-    t.string "cell_3", default: ""
-    t.string "cell_4", default: ""
-    t.string "cell_5", default: ""
-    t.string "cell_6", default: ""
-    t.string "cell_7", default: ""
-    t.string "cell_8", default: ""
-    t.string "cell_9", default: ""
-    t.string "cell_10", default: ""
+  create_table "result", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "player"
+    t.string "account"
+    t.text "achievement"
+    t.string "op_1"
+    t.string "op_2"
+    t.string "op_3"
+    t.string "op_4"
+    t.string "op_5"
+    t.string "op_6"
+    t.string "op_7"
+    t.string "op_8"
+    t.string "op_9"
+    t.string "op_10"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
