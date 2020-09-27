@@ -25,16 +25,16 @@
       <tr class="result-cells">
         <td class="rank"></td>
         <td class="self-name"><%= result.player %></td>
-        <td class="op_<%= i + 1 %>_1"><%= result.op_1 %></td>
-        <td class="op_<%= i + 1 %>_2"><%= result.op_2 %></td>
-        <td class="op_<%= i + 1 %>_3"><%= result.op_3 %></td>
-        <td class="op_<%= i + 1 %>_4"><%= result.op_4 %></td>
-        <td class="op_<%= i + 1 %>_5"><%= result.op_5 %></td>
-        <td class="op_<%= i + 1 %>_6"><%= result.op_6 %></td>
-        <td class="op_<%= i + 1 %>_7"><%= result.op_7 %></td>
-        <td class="op_<%= i + 1 %>_8"><%= result.op_8 %></td>
-        <td class="op_<%= i + 1 %>_9"><%= result.op_9 %></td>
-        <td class="op_<%= i + 1 %>_10"><%= result.op_10 %></td>
+        <td id="op_<%= i + 1 %>_1"><%= result.op_1 %></td>
+        <td id="op_<%= i + 1 %>_2"><%= result.op_2 %></td>
+        <td id="op_<%= i + 1 %>_3"><%= result.op_3 %></td>
+        <td id="op_<%= i + 1 %>_4"><%= result.op_4 %></td>
+        <td id="op_<%= i + 1 %>_5"><%= result.op_5 %></td>
+        <td id="op_<%= i + 1 %>_6"><%= result.op_6 %></td>
+        <td id="op_<%= i + 1 %>_7"><%= result.op_7 %></td>
+        <td id="op_<%= i + 1 %>_8"><%= result.op_8 %></td>
+        <td id="op_<%= i + 1 %>_9"><%= result.op_9 %></td>
+        <td id="op_<%= i + 1 %>_10"><%= result.op_10 %></td>
         <td class="win">0</td>
         <td class="lose">0</td>
         <td class="sb">0</td>
@@ -56,9 +56,9 @@
 
       <% @results.each do |result| %>
       <tr class="member-introduction">
-        <td class="member"></td>
-        <td class="account"></td>
-        <td class="achievement"></td>
+        <td class="member"><%= result.player %></td>
+        <td class="account"><%= result.account %></td>
+        <td class="achievement"><%= result.achievement %></td>
       </tr>
       <% end %>
 
