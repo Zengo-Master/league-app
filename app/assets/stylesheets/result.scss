@@ -18,18 +18,18 @@
   text-align: center;
 }
 
-// 対角線を引く対象となるtdを選定
-.op_1,
-.op_2,
-.op_3,
-.op_4,
-.op_5,
-.op_6,
-.op_7,
-.op_8,
-.op_9,
-.op_10 {
-  // background-image: linear-gradient(to top right, transparent, transparent 48%, black 49%, black 51%, transparent 52%, transparent);
+// 指定したtdに斜線を引く
+.op_1_1,
+.op_2_2,
+.op_3_3,
+.op_4_4,
+.op_5_5,
+.op_6_6,
+.op_7_7,
+.op_8_8,
+.op_9_9,
+.op_10_10 {
+  background-image: linear-gradient(to top right, transparent, transparent 48%, black 49%, black 51%, transparent 52%, transparent);
 }
 
 .top-title {
