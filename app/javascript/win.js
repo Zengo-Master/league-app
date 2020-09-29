@@ -17,10 +17,144 @@ function init(){
                   // 対戦が違う場合、イベントを登録
                   // onclick="winorlose_click(this);" と同じ内容
                   tds[itd].addEventListener('click', {name: this, handleEvent: winorlose_click});
-                  // ※ここで設定
+
+                  // ※リーグ表の中身の定義
+                  var json_data = {"_1":{
+                                          "member":"Aさん",
+                                          "_1":{"member":"Aさん","WinOrLose":9},
+                                          "_2":{"member":"Bさん","WinOrLose":0},
+                                          "_3":{"member":"Cさん","WinOrLose":0},
+                                          "_4":{"member":"Dさん","WinOrLose":0},
+                                          "_5":{"member":"Eさん","WinOrLose":0},
+                                          "_6":{"member":"Fさん","WinOrLose":0},
+                                          "_7":{"member":"Gさん","WinOrLose":0},
+                                          "_8":{"member":"Hさん","WinOrLose":0},
+                                          "_9":{"member":"Iさん","WinOrLose":0},
+                                          "_10":{"member":"Jさん","WinOrLose":0},
+                                        },
+                                   "_2":{
+                                          "member":"Bさん",
+                                          "_1":{"member":"Aさん","WinOrLose":0},
+                                          "_2":{"member":"Bさん","WinOrLose":9},
+                                          "_3":{"member":"Cさん","WinOrLose":0},
+                                          "_4":{"member":"Dさん","WinOrLose":0},
+                                          "_5":{"member":"Eさん","WinOrLose":0},
+                                          "_6":{"member":"Fさん","WinOrLose":0},
+                                          "_7":{"member":"Gさん","WinOrLose":0},
+                                          "_8":{"member":"Hさん","WinOrLose":0},
+                                          "_9":{"member":"Iさん","WinOrLose":0},
+                                          "_10":{"member":"Jさん","WinOrLose":0},
+                                        },
+                                   "_3":{
+                                          "member":"Cさん",
+                                          "_1":{"member":"Aさん","WinOrLose":0},
+                                          "_2":{"member":"Bさん","WinOrLose":0},
+                                          "_3":{"member":"Cさん","WinOrLose":9},
+                                          "_4":{"member":"Dさん","WinOrLose":0},
+                                          "_5":{"member":"Eさん","WinOrLose":0},
+                                          "_6":{"member":"Fさん","WinOrLose":0},
+                                          "_7":{"member":"Gさん","WinOrLose":0},
+                                          "_8":{"member":"Hさん","WinOrLose":0},
+                                          "_9":{"member":"Iさん","WinOrLose":0},
+                                          "_10":{"member":"Jさん","WinOrLose":0},
+                                        },
+                                   "_4":{
+                                          "member":"Dさん",
+                                          "_1":{"member":"Aさん","WinOrLose":0},
+                                          "_2":{"member":"Bさん","WinOrLose":0},
+                                          "_3":{"member":"Cさん","WinOrLose":0},
+                                          "_4":{"member":"Dさん","WinOrLose":9},
+                                          "_5":{"member":"Eさん","WinOrLose":0},
+                                          "_6":{"member":"Fさん","WinOrLose":0},
+                                          "_7":{"member":"Gさん","WinOrLose":0},
+                                          "_8":{"member":"Hさん","WinOrLose":0},
+                                          "_9":{"member":"Iさん","WinOrLose":0},
+                                          "_10":{"member":"Jさん","WinOrLose":0},
+                                        },
+                                   "_5":{
+                                          "member":"Eさん",
+                                          "_1":{"member":"Aさん","WinOrLose":0},
+                                          "_2":{"member":"Bさん","WinOrLose":0},
+                                          "_3":{"member":"Cさん","WinOrLose":0},
+                                          "_4":{"member":"Dさん","WinOrLose":0},
+                                          "_5":{"member":"Eさん","WinOrLose":9},
+                                          "_6":{"member":"Fさん","WinOrLose":0},
+                                          "_7":{"member":"Gさん","WinOrLose":0},
+                                          "_8":{"member":"Hさん","WinOrLose":0},
+                                          "_9":{"member":"Iさん","WinOrLose":0},
+                                          "_10":{"member":"Jさん","WinOrLose":0},
+                                        },
+                                   "_6":{
+                                          "member":"Fさん",
+                                          "_1":{"member":"Aさん","WinOrLose":0},
+                                          "_2":{"member":"Bさん","WinOrLose":0},
+                                          "_3":{"member":"Cさん","WinOrLose":0},
+                                          "_4":{"member":"Dさん","WinOrLose":0},
+                                          "_5":{"member":"Eさん","WinOrLose":0},
+                                          "_6":{"member":"Fさん","WinOrLose":9},
+                                          "_7":{"member":"Gさん","WinOrLose":0},
+                                          "_8":{"member":"Hさん","WinOrLose":0},
+                                          "_9":{"member":"Iさん","WinOrLose":0},
+                                          "_10":{"member":"Jさん","WinOrLose":0}
+                                        },
+                                   "_7":{
+                                          "member":"Gさん",
+                                          "_1":{"member":"Aさん","WinOrLose":0},
+                                          "_2":{"member":"Bさん","WinOrLose":0},
+                                          "_3":{"member":"Cさん","WinOrLose":9},
+                                          "_4":{"member":"Dさん","WinOrLose":0},
+                                          "_5":{"member":"Eさん","WinOrLose":0},
+                                          "_6":{"member":"Fさん","WinOrLose":0},
+                                          "_7":{"member":"Gさん","WinOrLose":9},
+                                          "_8":{"member":"Hさん","WinOrLose":0},
+                                          "_9":{"member":"Iさん","WinOrLose":0},
+                                          "_10":{"member":"Jさん","WinOrLose":0}
+                                        },
+                                   "_8":{
+                                          "member":"Hさん",
+                                          "_1":{"member":"Aさん","WinOrLose":0},
+                                          "_2":{"member":"Bさん","WinOrLose":0},
+                                          "_3":{"member":"Cさん","WinOrLose":0},
+                                          "_4":{"member":"Dさん","WinOrLose":9},
+                                          "_5":{"member":"Eさん","WinOrLose":0},
+                                          "_6":{"member":"Fさん","WinOrLose":0},
+                                          "_7":{"member":"Gさん","WinOrLose":0},
+                                          "_8":{"member":"Hさん","WinOrLose":9},
+                                          "_9":{"member":"Iさん","WinOrLose":0},
+                                          "_10":{"member":"Jさん","WinOrLose":0}
+                                        },
+                                   "_9":{
+                                          "member":"Iさん",
+                                          "_1":{"member":"Aさん","WinOrLose":0},
+                                          "_2":{"member":"Bさん","WinOrLose":0},
+                                          "_3":{"member":"Cさん","WinOrLose":0},
+                                          "_4":{"member":"Dさん","WinOrLose":0},
+                                          "_5":{"member":"Eさん","WinOrLose":0},
+                                          "_6":{"member":"Fさん","WinOrLose":0},
+                                          "_7":{"member":"Gさん","WinOrLose":0},
+                                          "_8":{"member":"Hさん","WinOrLose":0},
+                                          "_9":{"member":"Iさん","WinOrLose":9},
+                                          "_10":{"member":"Jさん","WinOrLose":0}
+                                        },
+                                   "_10":{
+                                          "member":"Iさん",
+                                          "_1":{"member":"Aさん","WinOrLose":0},
+                                          "_2":{"member":"Bさん","WinOrLose":0},
+                                          "_3":{"member":"Cさん","WinOrLose":0},
+                                          "_4":{"member":"Dさん","WinOrLose":0},
+                                          "_5":{"member":"Eさん","WinOrLose":0},
+                                          "_6":{"member":"Fさん","WinOrLose":0},
+                                          "_7":{"member":"Gさん","WinOrLose":0},
+                                          "_8":{"member":"Hさん","WinOrLose":0},
+                                          "_9":{"member":"Iさん","WinOrLose":0},
+                                          "_10":{"member":"Jさん","WinOrLose":9}
+                                        }
+                                  };
+
                   if(json_data[arr[1]][arr[2]]["WinOrLose"] == 1){
                       tds[itd].innerHTML = "○";
-                  } else {
+                  } 
+                  else if(json_data[arr[1]][arr[2]]["WinOrLose"] == -1) {
                       tds[itd].innerHTML = "●";
                   }
               }
@@ -46,7 +180,7 @@ function winorlose_click(el){
         loss = 0;
         var tds = trs[itr].getElementsByTagName('td');
         for(var itd = 0; itd < tds.length; itd++){
-            if(tds[itd].id.indexOf('cell_') != -1){
+            if(tds[itd].id.indexOf('op_') != -1){
                 // 勝ち負け数カウント
                 if(tds[itd].innerHTML == '○'){
                     win ++;
