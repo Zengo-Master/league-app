@@ -151,10 +151,10 @@ function init(){
                                         }
                                   };
 
-                  if(json_data[arr[1]][arr[2]]["WinOrLose"] == 1){
+                  if(json_data['_'+ arr[1]]['_'+ arr[2]]["WinOrLose"] == 1){
                       tds[itd].innerHTML = "○";
                   } 
-                  else if(json_data[arr[1]][arr[2]]["WinOrLose"] == -1) {
+                  else if(json_data['_'+ arr[1]]['_'+ arr[2]]["WinOrLose"] == -1) {
                       tds[itd].innerHTML = "●";
                   }
               }
