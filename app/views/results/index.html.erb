@@ -10,7 +10,6 @@
         <th class="rank-title">順位</th>
         <th class="player-title">対局者</th>
 
-        <%# 対戦相手の名前を動的に生成 %>
         <% @results.each do |result| %>
         <td class="opponent-name"><%= result.player %></td>
         <% end %>
@@ -20,7 +19,6 @@
         <th class="sb-count-title">SB</th>
       </tr>
 
-      <%# 対局者の行を動的に生成 %>
       <% @results.each_with_index do |result, i| %>
       <tr class="result-cells">
         <td class="rank"></td>
