@@ -4,13 +4,16 @@ class ResultsController < ApplicationController
     @results = Result.all
   end
 
-  # def game
+  # def win_or_lose
   #   result = Result.find(params[:id])
-  #   if result.クリックしたtdのカラム == ""
-  #     result.update(クリックしたtdのカラム: "")
-  #   else
-  #     result.update(クリックしたtdのカラム: "")
+  #   binding.pry
+  #   if result.op_2 == nil
+  #     result.update(op_2: "○")
+  #   else result.op_2 == "○"
+  #     result.update(op_2: nil)
   #   end
+  #   item = Result.find(params[:id])
+  #   render json: { result: item }
   # end
 
 end

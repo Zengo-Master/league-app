@@ -1,5 +1,5 @@
 <div class="header">
-  <h1 class="title">第7回しゅが研</h1>
+  <h1 class="title">第7回しゅが研<span>毎週金曜日20時〜</span></h1>
 </div>
 
 <div class="main">
@@ -23,16 +23,16 @@
       <tr class="result-cells">
         <td class="rank"></td>
         <td class="self-name"><%= result.player %></td>
-        <td id="op_<%= i + 1 %>_1"><%= result.op_1 %></td>
-        <td id="op_<%= i + 1 %>_2"><%= result.op_2 %></td>
-        <td id="op_<%= i + 1 %>_3"><%= result.op_3 %></td>
-        <td id="op_<%= i + 1 %>_4"><%= result.op_4 %></td>
-        <td id="op_<%= i + 1 %>_5"><%= result.op_5 %></td>
-        <td id="op_<%= i + 1 %>_6"><%= result.op_6 %></td>
-        <td id="op_<%= i + 1 %>_7"><%= result.op_7 %></td>
-        <td id="op_<%= i + 1 %>_8"><%= result.op_8 %></td>
-        <td id="op_<%= i + 1 %>_9"><%= result.op_9 %></td>
-        <td id="op_<%= i + 1 %>_10"><%= result.op_10 %></td>
+        <td id="op_<%= i + 1 %>_1" data-id=<%= result.id %> data-result=<%= result.op_1 %>><%= result.op_1 %></td>
+        <td id="op_<%= i + 1 %>_2" data-id=<%= result.id %> data-result=<%= result.op_2 %>><%= result.op_2 %></td>
+        <td id="op_<%= i + 1 %>_3" data-id=<%= result.id %> data-result=<%= result.op_3 %>><%= result.op_3 %></td>
+        <td id="op_<%= i + 1 %>_4" data-id=<%= result.id %> data-result=<%= result.op_4 %>><%= result.op_4 %></td>
+        <td id="op_<%= i + 1 %>_5" data-id=<%= result.id %> data-result=<%= result.op_5 %>><%= result.op_5 %></td>
+        <td id="op_<%= i + 1 %>_6" data-id=<%= result.id %> data-result=<%= result.op_6 %>><%= result.op_6 %></td>
+        <td id="op_<%= i + 1 %>_7" data-id=<%= result.id %> data-result=<%= result.op_7 %>><%= result.op_7 %></td>
+        <td id="op_<%= i + 1 %>_8" data-id=<%= result.id %> data-result=<%= result.op_8 %>><%= result.op_8 %></td>
+        <td id="op_<%= i + 1 %>_9" data-id=<%= result.id %> data-result=<%= result.op_9 %>><%= result.op_9 %></td>
+        <td id="op_<%= i + 1 %>_10" data-id=<%= result.id %> data-result=<%= result.op_10 %>><%= result.op_10 %></td>
         <td id="win_<%= i + 1 %>">0</td>
         <td id="lose_<%= i + 1 %>">0</td>
         <td id="sb_<%= i + 1 %>">0</td>
@@ -62,5 +62,10 @@
 
     </table>
     </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div>
   </div>
 </div>

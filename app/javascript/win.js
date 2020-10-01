@@ -139,7 +139,7 @@ function init(){
       // テーブルの行毎に処理
       var tds = trs[itr].getElementsByTagName('td');
       for(var itd = 0; itd < tds.length; itd++){
-          if(tds[itd].id.indexOf('op_') != -1){
+          if(tds[itd].id.indexOf('op_') != -1){ // op_を含む要素が存在する
               // 勝ち負け入力<td>タグの場合
               var arr = tds[itd].id.split('_'); // op_数字_数字 → [op, 数字, 数字]
               if(arr[1] == arr[2]){
@@ -150,7 +150,6 @@ function init(){
                   // 対戦が違う場合、イベントを登録
                   // onclick="winorlose_click(this);" と同じ内容
                   tds[itd].addEventListener('click', {name: this, handleEvent: winorlose_click});
-
                   if(json_data['_'+ arr[1]]['_'+ arr[2]]["WinOrLose"] == 1){
                       tds[itd].innerHTML = "○";
                   } 
