@@ -1,7 +1,7 @@
 class ResultsController < ApplicationController
 
   def index
-    @results = Result.all
+    @members = Member.all
   end
 
   # def win_or_lose

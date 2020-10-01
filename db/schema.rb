@@ -10,24 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_073547) do
+ActiveRecord::Schema.define(version: 2020_10_01_030846) do
 
-  create_table "result", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "player"
-    t.string "account"
-    t.text "achievement"
-    t.string "op_1"
-    t.string "op_2"
-    t.string "op_3"
-    t.string "op_4"
-    t.string "op_5"
-    t.string "op_6"
-    t.string "op_7"
-    t.string "op_8"
-    t.string "op_9"
-    t.string "op_10"
+  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "account", null: false
+    t.text "achievement", null: false
+    t.integer "win", null: false
+    t.integer "lose", null: false
+    t.integer "sb", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "member_id"
+    t.integer "op_id"
+    t.integer "result"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_results_on_member_id"
+  end
+
+  add_foreign_key "results", "members"
 end

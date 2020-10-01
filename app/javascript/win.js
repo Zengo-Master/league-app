@@ -139,7 +139,7 @@ function init(){
       // テーブルの行毎に処理
       var tds = trs[itr].getElementsByTagName('td');
       for(var itd = 0; itd < tds.length; itd++){
-          if(tds[itd].id.indexOf('op_') != -1){ // op_を含む要素が存在する
+          if(tds[itd].id.indexOf('op_') != -1){ // idにop_を含む（勝敗記入のtd）
               // 勝ち負け入力<td>タグの場合
               var arr = tds[itd].id.split('_'); // op_数字_数字 → [op, 数字, 数字]
               if(arr[1] == arr[2]){
@@ -158,6 +158,12 @@ function init(){
                   }
               }
           }
+          // else if(tds[itd].id.indexOf('win_') != -1){ // idにwin_を含む（勝ち数のtd）
+          //   tds[itd].innerHTML = json_data['_'+ arr[1]]['_'+ arr[2]]["WinCount"];
+          // }
+          // else { // 残るは負け数
+          //   tds[itd].innerHTML = json_data['_'+ arr[1]]['_'+ arr[2]]["LoseCount"];
+          // }
       }
   }
 }
@@ -168,13 +174,13 @@ function winorlose_click(el){
     var arr = el.target.id.split('_');                 // idを'_'で分ける .targetで親要素イベントも発火
     var oppid = arr[0] + '_' + arr[2] + '_'+ arr[1];   // 反対側のid
     // 勝敗の記入と取消
-    if(el.target.innerHTML == ''){                      // 勝敗を記入
-      el.target.innerHTML = '○';                         // 勝ち
-      document.getElementById(oppid).innerHTML = '●';    // 負け 
+    if(el.target.innerHTML == ''){                     // 勝敗を記入
+      el.target.innerHTML = '○';                       // 勝ち
+      document.getElementById(oppid).innerHTML = '●';  // 負け 
     }
-    else if(el.target.innerHTML == '○'){                // 勝敗を取消
-      el.target.innerHTML = '';                         // 空白
-      document.getElementById(oppid).innerHTML = '';    // 空白
+    else if(el.target.innerHTML == '○'){               // 勝敗を取消
+      el.target.innerHTML = '';                        // 空白
+      document.getElementById(oppid).innerHTML = '';   // 空白
     }
     // 勝ち数と負け数の計算
     var trs = document.getElementById("winorlose_table").getElementsByTagName('tr');
@@ -202,6 +208,7 @@ function winorlose_click(el){
                 tds[itd].innerHTML = lose;
             }
         }
+    // json_dataの更新？
     }
 }
 
