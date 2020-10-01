@@ -152,18 +152,12 @@ function init(){
                   tds[itd].addEventListener('click', {name: this, handleEvent: winorlose_click});
                   if(json_data['_'+ arr[1]]['_'+ arr[2]]["WinOrLose"] == 1){
                       tds[itd].innerHTML = "○";
-                  } 
+                  }
                   else if(json_data['_'+ arr[1]]['_'+ arr[2]]["WinOrLose"] == -1) {
                       tds[itd].innerHTML = "●";
                   }
               }
           }
-          // else if(tds[itd].id.indexOf('win_') != -1){ // idにwin_を含む（勝ち数のtd）
-          //   tds[itd].innerHTML = json_data['_'+ arr[1]]['_'+ arr[2]]["WinCount"];
-          // }
-          // else { // 残るは負け数
-          //   tds[itd].innerHTML = json_data['_'+ arr[1]]['_'+ arr[2]]["LoseCount"];
-          // }
       }
   }
 }
