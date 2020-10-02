@@ -7,6 +7,8 @@ league-app
 # 本番環境
 ## Heroku
 https://league-table-app.herokuapp.com/
+ユーザー名：sugar
+パスワード：7
 
 ## AWS
 
