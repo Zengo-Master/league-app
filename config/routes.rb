@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'json_p/parse'
   root to: 'results#index'
-  get 'results/:id', to: 'results#win_or_lose' # 対局者のid
+  post  'json_p/parse'
 end
