@@ -3,7 +3,7 @@ class CreateResults < ActiveRecord::Migration[6.0]
     create_table :results do |t|
       t.references :member,   foreign_key: true
       t.integer    :op_id
-      t.integer    :result
+      t.string     :result
 
       t.timestamps
     end
