@@ -164,7 +164,12 @@ function init(){
 
 // クリックしたときの処理
 function winorlose_click(el){
-    // el にはどこでクリックされたかの情報が入っている
+  const resultId = el.target.getAttribute("data-id");
+  const XHR = new XMLHttpRequest();
+  XHR.open("GET", `/results/${resultId}`, true);
+  XHR.responseType = "json";
+  XHR.send();
+  // el にはどこでクリックされたかの情報が入っている
     var arr = el.target.id.split('_');                 // idを'_'で分ける .targetで親要素イベントも発火
     var oppid = arr[0] + '_' + arr[2] + '_'+ arr[1];   // 反対側のid
     // 勝敗の記入と取消
