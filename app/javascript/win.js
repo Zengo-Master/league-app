@@ -164,11 +164,6 @@ function init(){
 
 // クリックしたときの処理
 function winorlose_click(el){
-  const resultId = el.target.getAttribute("data-id");
-  const XHR = new XMLHttpRequest();
-  XHR.open("GET", `/results/${resultId}`, true);
-  XHR.responseType = "json";
-  XHR.send();
   // el にはどこでクリックされたかの情報が入っている
     var arr = el.target.id.split('_');                 // idを'_'で分ける .targetで親要素イベントも発火
     var oppid = arr[0] + '_' + arr[2] + '_'+ arr[1];   // 反対側のid
@@ -176,11 +171,16 @@ function winorlose_click(el){
     if(el.target.innerHTML == ''){                     // 勝敗を記入
       el.target.innerHTML = '○';                       // 勝ち
       document.getElementById(oppid).innerHTML = '●';  // 負け 
+      json_data['_'+ arr[1]]['_'+ arr[2]]["WinOrLose"] = 1;           //jsonのデータ自体を更新
+      json_data['_'+ arr[2]]['_'+ arr[1]]["WinOrLose"] = -1;          //jsonのデータ自体を更新
     }
     else if(el.target.innerHTML == '○'){               // 勝敗を取消
       el.target.innerHTML = '';                        // 空白
       document.getElementById(oppid).innerHTML = '';   // 空白
+      json_data['_'+ arr[1]]['_'+ arr[2]]["WinOrLose"] = 0;           //jsonのデータ自体を更新
+      json_data['_'+ arr[2]]['_'+ arr[1]]["WinOrLose"] = 0;           //jsonのデータ自体を更新
     }
+
     // 勝ち数と負け数の計算
     var trs = document.getElementById("winorlose_table").getElementsByTagName('tr');
     var win = 0;
@@ -196,7 +196,7 @@ function winorlose_click(el){
                 // 勝ち負け数カウント
                 if(tds[itd].innerHTML == '○'){
                     win ++;
-                }else if(tds[itd].innerHTML == '●'){
+                } else if(tds[itd].innerHTML == '●'){
                     lose ++;
                 }
             } else if(tds[itd].id.indexOf('win_') != -1){
@@ -207,8 +207,18 @@ function winorlose_click(el){
                 tds[itd].innerHTML = lose;
             }
         }
-    // json_dataの更新？
     }
+
+    //※ データの送信は処理の最後(このタイミングなら勝敗数も送れる)
+    //あとこの場合constではなくletを使う
+    //constはシステム的に定数となるときに使う（グローバル関数で指定しておくなら良いが）
+    //この関数内で数回指定するのであれば「let」または「var」を使いましょう。
+    //(環境が揃えられないのでこの下の内容で正しく動くかは不明)
+    let resultId = el.target.getAttribute("data-id");
+    let XHR = new XMLHttpRequest();
+    XHR.open("GET", `/results/${resultId}`, true);    //※非同期の場合は更新順番が必ず送った順番とならない。
+    XHR.responseType = "json";
+    XHR.send();
 }
 
 window.addEventListener("load", init);
