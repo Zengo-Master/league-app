@@ -136,6 +136,8 @@ function init(){
   var trs = document.getElementById("winorlose_table").getElementsByTagName('tr');
   // 1行目はヘッダーだから飛ばして
   for(var itr = 1; itr < trs.length; itr++){
+  var win = 0;
+  var lose = 0;
       // テーブルの行毎に処理
       var tds = trs[itr].getElementsByTagName('td');
       for(var itd = 0; itd < tds.length; itd++){
@@ -147,6 +149,14 @@ function init(){
                   tds[itd].classList.add('right_down_border'); // 縦横同値マスにクラスを指定
               }
               else {
+                  // 勝ち数を加算
+                  if(tds[itd].innerHTML == '○'){
+                    win ++;
+                  }
+                  // 負け数を加算
+                  else if(tds[itd].innerHTML == '●'){
+                    lose ++;
+                  }
                   // 対戦が違う場合、イベントを登録
                   // onclick="winorlose_click(this);" と同じ内容
                   tds[itd].addEventListener('click', {name: this, handleEvent: winorlose_click});
@@ -158,13 +168,26 @@ function init(){
                   }
               }
           }
+          else if(tds[itd].id.indexOf('win_') != -1) {
+            // 勝ち表示
+            tds[itd].innerHTML = win;
+          }
+          else if(tds[itd].id.indexOf('lose_') != -1) {
+            // 負け表示
+            tds[itd].innerHTML = lose;
+          }
       }
   }
 }
 
 // クリックしたときの処理
+var send_winorlose = false;
+var XHR;
 function winorlose_click(el){
-  // el にはどこでクリックされたかの情報が入っている
+    if(send_winorlose) return;    // 送信中は実行できない
+    send_winorlose = true;        // 処理中とする
+
+    // el にはどこでクリックされたかの情報が入っている
     var arr = el.target.id.split('_');                 // idを'_'で分ける .targetで親要素イベントも発火
     var oppid = arr[0] + '_' + arr[2] + '_'+ arr[1];   // 反対側のid
     // 勝敗の記入と取消
@@ -209,15 +232,20 @@ function winorlose_click(el){
         }
     }
 
-    //※ データの送信は処理の最後(このタイミングなら勝敗数も送れる)
-    //あとこの場合constではなくletを使う
-    //constはシステム的に定数となるときに使う（グローバル関数で指定しておくなら良いが）
-    //この関数内で数回指定するのであれば「let」または「var」を使いましょう。
-    //(環境が揃えられないのでこの下の内容で正しく動くかは不明)
+    //※ データの送信は処理の最後
+    //※ 非同期でも結果が返ってくるまでクリックを無視するように変更
     let resultId = el.target.getAttribute("data-id");
-    let XHR = new XMLHttpRequest();
-    XHR.open("GET", `/results/${resultId}`, true);    //※非同期の場合は更新順番が必ず送った順番とならない。
-    XHR.responseType = "json";
+    if(!XHR){
+        XHR = new XMLHttpRequest();
+        XHR.responseType = "json";
+        XHR.onload = function() {
+            send_winorlose = false;    // 送信完了
+        };
+        XHR.onerror = function() {
+            send_winorlose = false;    // 送信完了
+        };
+    }
+    XHR.open("GET", `/results/${resultId}`, true);
     XHR.send();
 }
 
