@@ -5,12 +5,16 @@ class ResultsController < ApplicationController
   end
 
   def win_or_lose
-    result = Result.find(params[:id])
+    resultAry = params[:id].split("_")
+    result_win = Result.find(resultAry[0])
+    result_lose = Result.find(resultAry[1])
     # binding.pry
-    if result.result == "○"
-      result.update(result: "")
-    else result.result == ""
-      result.update(result: "○")
+    if result_win.result == "○"
+      result_win.update(result: "")
+      result_lose.update(result: "")
+    else result_win.result == ""
+      result_win.update(result: "○")
+      result_lose.update(result: "●")
     end
     # item = Result.find(params[:id])
     # render json: { result: item }
