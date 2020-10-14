@@ -8,7 +8,6 @@ class ResultsController < ApplicationController
     resultAry = params[:id].split("_")
     result_win = Result.find(resultAry[0])
     result_lose = Result.find(resultAry[1])
-    # binding.pry
     if result_win.result == "○"
       result_win.update(result: "")
       result_lose.update(result: "")
@@ -16,8 +15,6 @@ class ResultsController < ApplicationController
       result_win.update(result: "○")
       result_lose.update(result: "●")
     end
-    # item = Result.find(params[:id])
-    # render json: { result: item }
   end
 
 end
