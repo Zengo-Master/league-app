@@ -34,9 +34,6 @@ Ruby/Ruby on Rails/MySQL/Github/Visual Studio Code
 | name        | string | null: false |
 | account     | string |             |
 | achievement | text   |             |
-| win         | string |             |
-| lose        | string |             |
-| sb          | string |             |
 
 
 ### Association
@@ -49,8 +46,8 @@ Ruby/Ruby on Rails/MySQL/Github/Visual Studio Code
 | ----------- | ---------- | ----------- |
 | member      | references | null: false |
 | op_id       | integer    | null: false |
-| result      | text       |             |
-
+| result      | string     |             |
+| kifu        | text       |             |
 
 ### Association
 

@@ -16,9 +16,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_043041) do
     t.string "name"
     t.string "account"
     t.text "achievement"
-    t.integer "win"
-    t.integer "lose"
-    t.integer "sb"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_043041) do
     t.bigint "member_id"
     t.integer "op_id"
     t.string "result"
+    t.text "kifu"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_results_on_member_id"

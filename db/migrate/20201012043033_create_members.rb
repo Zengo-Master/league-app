@@ -4,9 +4,6 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       t.string     :name
       t.string     :account
       t.text       :achievement
-      t.integer    :win
-      t.integer    :lose
-      t.integer    :sb
 
       t.timestamps
     end

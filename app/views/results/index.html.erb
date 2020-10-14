@@ -12,7 +12,6 @@
 
         <th class="win-count-title">勝</th>
         <th class="lose-count-title">負</th>
-        <th class="sb-count-title">SB</th>
       </tr>
 
       <% @members.each_with_index do |member, i| %>
@@ -31,7 +30,6 @@
         <td id="op_<%= i + 1 %>_10" data-id="<%= (i * 10) + 10 %>_<%= (10 * (i * 10 + 10)) - (100 * i + (9 - i)) %>"><%= Result.find((i * 10) + 10).result %></td>
         <td id="win_<%= i + 1 %>">0</td>
         <td id="lose_<%= i + 1 %>">0</td>
-        <td id="sb_<%= i + 1 %>">0</td>
       </tr>
       <% end %>
 

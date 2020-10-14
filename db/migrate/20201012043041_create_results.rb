@@ -4,6 +4,7 @@ class CreateResults < ActiveRecord::Migration[6.0]
       t.references :member,   foreign_key: true
       t.integer    :op_id
       t.string     :result
+      t.text       :kifu
 
       t.timestamps
     end
